@@ -142,10 +142,18 @@ https://dashboard.tenderly.co/shared/simulation/92dadba3-92c3-46a2-9ccc-c793cac6
 ## To use:
 
 Click Re-Simulate in the top right corner.
-Update the simulation parameters: tokenA (your token address), tokenB (typically WETH, or 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2), and set the fee tier to either 500, 3000 (for 0.3%), or 10000 (for 1%).
+
+Update the simulation parameters: 
+
+tokenA (your token address)
+
+tokenB (typically WETH, or 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2)
+
+Set the fee tier to either 500, 3000 (for 0.3%), or 10000 (for 1%).
+
 Run Simulate, and then expand the Input/Output section. The output on the right column will show the derived pool address.
 
-Useful Deployment Addresses
+## Useful Deployment Addresses
 
 ```sh
 WETH: 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2
