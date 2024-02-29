@@ -68,12 +68,20 @@ Clone the ERC404 repository to your local machine:
 ```sh
 git clone https://github.com/UnfoundLabs/ERC404-V1.git
 ```
+
+Navigate to project directory
+
 ```sh
 cd ERC404-V1
 ```
+
+Install project
+
 ```sh
 npm install
 ```
+
+Make sure to create a .env file with yur credentials, use the .env.example for formatting.
 
 ### 3. Compile the Contracts:
 
