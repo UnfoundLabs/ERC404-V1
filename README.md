@@ -44,10 +44,7 @@ the contract.
 
 4. Gas Efficiency Improvements:
 By introducing a systematic approach to ID management, the upgraded contract also achieves
-better gas efficiency. The reuse of IDs minimizes the need for additional storage operations,
-
-which are among the most gas-intensive operations in the Ethereum Virtual Machine (EVM). This
-efficiency is crucial for maintaining low transaction costs and enhancing the contract's scalability.
+better gas efficiency. The reuse of IDs minimizes the need for additional storage operations, which are among the most gas-intensive operations in the Ethereum Virtual Machine (EVM).This efficiency is crucial for maintaining low transaction costs and enhancing the contract's scalability.
 
 ## Getting Started:
 
