@@ -19,7 +19,7 @@ addresses critical issues related to ID creation and duplication, ensuring a mor
 and user-friendly experience. By optimizing ID management, the upgraded contract sets a new
 standard for combining ERC20 and ERC721 functionalities in a single framework.
 
-##Enhancements in the New ERC404 Contract:
+## Enhancements in the New ERC404 Contract:
 
 1. Efficient ID Management:
 The upgraded ERC404 contract introduces a sophisticated ID management system that
