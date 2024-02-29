@@ -2,6 +2,8 @@
 
 This guide provides instructions for deploying the ERC404 contract and interacting with it using Hardhat commands. This is a fork of the original ERC404 contract built by pandora.build.
 
+## Pandora ERC404 Original Contract
+
 ```sh
 https://github.com/Pandora-Labs-Org/erc404
 ```
