@@ -2,6 +2,10 @@
 
 This guide provides instructions for deploying the ERC404 contract and interacting with it using Hardhat commands. This is a fork of the original ERC404 contract built by pandora.build.
 
+```sh
+https://github.com/Pandora-Labs-Org/erc404
+```
+
 Unfound Labs Introduction to ID Management Upgrade in ERC404:
 
 The original ERC404 contract presented an innovative blend of ERC20 and ERC721
@@ -44,11 +48,7 @@ efficiency is crucial for maintaining low transaction costs and enhancing the co
 
 ## Getting Started:
 
-```sh
-https://github.com/Pandora-Labs-Org/erc404
-```
-
-With key changes for token ID management. The unfound fork implements a ID management system to ensure IDs do not increment past th 
+Follow these instructions to clone and launch the ERC404-v1 contract.
 
 ## Prerequisites
 
