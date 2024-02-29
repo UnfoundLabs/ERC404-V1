@@ -5,7 +5,11 @@ This guide provides instructions for deploying the ERC404 contract and interacti
 ## Prerequisites
 
 - Node.js and npm installed
-- Hardhat installed globally (`npm install -g hardhat`)
+- Hardhat installed globally
+
+```sh
+npm install -g hardhat
+```
 
 ## Deployment Steps
 
