@@ -12,10 +12,13 @@
   "license": "ISC",
   "dependencies": {
     "@openzeppelin/contracts": "^5.0.1",
+    "@uniswap/v3-core": "^1.0.1",
     "chai": "^4.4.1",
     "dotenv": "^16.4.3",
-    "hardhat": "^2.19.5",
-    "hardhat-gas-reporter": "^1.0.10"
+    "ethers": "^6.11.1",
+    "hardhat": "^2.20.1",
+    "hardhat-gas-reporter": "^1.0.10",
+    "web3": "^4.5.0"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^4.0.0",

@@ -5,21 +5,8 @@ import {Ownable} from "./lib/Ownable.sol";
 import {ERC721Receiver} from "./lib/ERC721Receiver.sol";
 
 /// @notice ERC404
-///         A gas-efficient, mixed ERC20 / ERC721 implementation
-///         with native liquidity and fractionalization.
-///
-///         This is an experimental standard designed to integrate
-///         with pre-existing ERC20 / ERC721 support as smoothly as
-///         possible.
-///
 /// @dev    In order to support full functionality of ERC20 and ERC721
-///         supply assumptions are made that slightly constraint usage.
-///         Ensure decimals are sufficiently large (standard 18 recommended)
-///         as ids are effectively encoded in the lowest range of amounts.
-///
-///         NFTs are spent on ERC20 functions in a FILO queue, this is by
-///         design.
-///
+
 abstract contract ERC404 is Ownable {
     // Metadata
     /// @dev Token name
@@ -61,6 +48,9 @@ abstract contract ERC404 is Ownable {
 
     /// @dev Addresses whitelisted from minting / burning for gas savings (pairs, routers, etc)
     mapping(address => bool) public whitelist;
+
+    // Queue of available IDs for reuse
+    uint256[] private availableIds;
 
     // Events
     event ERC20Transfer(
@@ -299,19 +289,20 @@ abstract contract ERC404 is Ownable {
     }
 
     function _mint(address to) internal virtual {
-        if (to == address(0)) {
-            revert InvalidRecipient();
-        }
+        require(to != address(0), "InvalidRecipient");
 
-        unchecked {
+        uint256 id;
+        if (availableIds.length > 0) {
+            // Use an ID from the queue
+            id = availableIds[availableIds.length - 1];
+            availableIds.pop();
+        } else {
+            // Increment `minted` to get a new ID
             minted++;
+            id = minted;
         }
 
-        uint256 id = minted;
-
-        if (_ownerOf[id] != address(0)) {
-            revert AlreadyExists();
-        }
+        require(_ownerOf[id] == address(0), "AlreadyExists");
 
         _ownerOf[id] = to;
         _owned[to].push(id);
@@ -320,19 +311,25 @@ abstract contract ERC404 is Ownable {
         emit Transfer(address(0), to, id);
     }
 
-    function _burn(address from) internal virtual {
-        if (from == address(0)) {
-            revert InvalidSender();
-        }
 
+    function _burn(address from) internal virtual {
+        require(from != address(0), "InvalidSender");
+
+        // Assuming you're burning the last token owned by `from`
         uint256 id = _owned[from][_owned[from].length - 1];
+        require(id != 0, "NotFound");
+
         _owned[from].pop();
         delete _ownedIndex[id];
         delete _ownerOf[id];
         delete getApproved[id];
 
         emit Transfer(from, address(0), id);
+
+        // Add the ID back to the queue of available IDs
+        availableIds.push(id);
     }
+
 
     function _setNameSymbol(
         string memory _name,

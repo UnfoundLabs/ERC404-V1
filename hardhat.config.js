@@ -5,7 +5,7 @@ require('hardhat-gas-reporter');
 require('@nomiclabs/hardhat-solhint');
 
 // import hardhat CLI tasks
-require('./tasks/my-erc404');
+require('./tasks/unfound');
 
 // eslint-disable-next-line prefer-destructuring
 const ACCOUNT_PRIVATE_KEY = process.env.ACCOUNT_PRIVATE_KEY;
