@@ -195,6 +195,30 @@ abstract contract ERC404 is Ownable {
         }
     }
 
+    // View function to get range of available IDs in pool
+    function getAvailableIdsRange(uint256 start, uint256 end) public view returns (uint256[] memory) {
+        if(start >= availableIds.length) {
+            // Return an empty array if start is out of bounds.
+            return new uint256[](0); 
+        }
+
+        // Adjust end to the last valid index if it's out of bounds.
+        if(end >= availableIds.length) {
+            end = availableIds.length - 1; 
+        }
+
+        uint256 rangeSize = end - start + 1;
+        uint256[] memory rangeIds = new uint256[](rangeSize);
+
+        for (uint256 i = 0; i < rangeSize; i++) {
+            rangeIds[i] = availableIds[start + i];
+        }
+
+        return rangeIds;
+    }
+
+
+
     /// @notice Function for fractional transfers
     function transfer(
         address to,
@@ -343,4 +367,5 @@ abstract contract ERC404 is Ownable {
     function _getUnit() internal view returns (uint256) {
         return 10 ** DECIMALS;
     }
+    
 }
