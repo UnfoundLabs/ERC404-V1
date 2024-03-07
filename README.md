@@ -1,7 +1,7 @@
 # Unfound ERC404 Deployment Guide
 This is an experimental implementation, this contract has not been audited yet. Please know the risks and fully test before using in any production environment!
 
-This guide provides instructions for deploying the ERC404 contract and interacting with it using Hardhat commands. This is a fork of the original ERC404 contract built by pandora.build.
+This guide provides instructions for deploying the ERC404 contract and interacting with it using Hardhat commands. This is a fork of the original ERC404 contract built by pandora.build .
 
 ## Pandora ERC404 Original Contract
 
